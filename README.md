@@ -28,7 +28,7 @@ Just make sure that it is run in the end of each of your tests.
 require 'ar_left_over_guardian'
 
 RSpec.configure do |config|
-  left_over_guardian = ARLeftOverGuardian.init(ActiveRecord.descendants)
+  left_over_guardian = ARLeftOverGuardian.init(ActiveRecord::Base.descendants)
 
   # ...
 
