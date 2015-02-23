@@ -9,7 +9,7 @@ module ARLeftOverGuardian
 
   class Instance
     def initialize(models)
-      @models = models.reject(&:abstract_class?)
+      @models = models.reject(&method(:abstract?))
       @counts = current_counts
     end
 
@@ -37,6 +37,10 @@ module ARLeftOverGuardian
       models.map { |model|
         reset_model(model).count
       }
+    end
+
+    def abstract?(model)
+      model.respond_to?(:abstract_class?) && model.abstract_class?
     end
 
     def reset_model(model)

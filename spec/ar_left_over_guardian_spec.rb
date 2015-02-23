@@ -16,7 +16,13 @@ end
 class FakeModel < FakeWithCount; self.abstract_class = false; end
 class OtherFakeModel < FakeWithCount; self.abstract_class = false; end
 
-MODELS = [FakeWithCount, FakeModel, OtherFakeModel]
+class NonARModel
+  def self.count
+    4
+  end
+end
+
+MODELS = [FakeWithCount, FakeModel, OtherFakeModel, NonARModel]
 
 module CountFaker
   def fake_count(count, opts={})
