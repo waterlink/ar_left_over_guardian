@@ -25,7 +25,7 @@ Just make sure that it is run in the end of each of your tests.
 ### Usage with rspec
 
 ```ruby
-require 'ar_left_over_guardian
+require 'ar_left_over_guardian'
 
 RSpec.configure do |config|
   left_over_guardian = ARLeftOverGuardian.init

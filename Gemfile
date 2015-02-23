@@ -2,3 +2,5 @@ source 'https://rubygems.org'
 
 # Specify your gem's dependencies in ar_left_over_guardian.gemspec
 gemspec
+
+gem "rspec"
