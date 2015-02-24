@@ -10,7 +10,7 @@ module ARLeftOverGuardian
   class Instance
     def initialize(models)
       @models = models.reject(&method(:abstract?))
-      @counts = current_counts
+      @counts = current_counts(false)
     end
 
     def verify
@@ -33,9 +33,9 @@ module ARLeftOverGuardian
       end
     end
 
-    def current_counts
+    def current_counts(reset = true)
       models.map { |model|
-        reset_model(model).count
+        reset_model(model, reset).count
       }
     end
 
@@ -43,7 +43,8 @@ module ARLeftOverGuardian
       model.respond_to?(:abstract_class?) && model.abstract_class?
     end
 
-    def reset_model(model)
+    def reset_model(model, reset)
+      return model unless reset
       RSpec::Mocks.space.proxy_for(model).reset if defined?(RSpec::Mocks)
       model
     end

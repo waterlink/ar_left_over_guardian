@@ -31,6 +31,11 @@ module CountFaker
   end
 end
 
+def it_should_be_possible_to_init_it_out_of_example
+  ARLeftOverGuardian.init([NonARModel])
+end
+it_should_be_possible_to_init_it_out_of_example
+
 RSpec.describe ARLeftOverGuardian do
   include CountFaker
 
