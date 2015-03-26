@@ -4,3 +4,9 @@ source 'https://rubygems.org'
 gemspec
 
 gem "rspec"
+
+group :development do
+  gem "contracts", github: "egonSchiele/contracts.ruby"
+  gem "yard"
+  gem "yard-contracts", github: "sfcgeorge/yard-contracts"
+end
